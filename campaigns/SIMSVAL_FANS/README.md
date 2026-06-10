@@ -7,7 +7,7 @@ MATLAB pipeline for post-processing CTD data from **RBR Concerto** sensors deplo
 
 This code produces the datasets published in:
 
-> Umbert et al. (2026). *Hydrographic CTD profiles capturing the onset of near-surface stratification in Southwest Greenland fjords during two consecutive spring 2025 field campaigns.* Earth System Science Data. *(in preparation)*
+> Umbert et al. (2026). *Hydrographic CTD profiles capturing the onset of near-surface stratification in Southwest Greenland fjords during two consecutive spring 2025 field campaigns.* Earth System Science Data. *(submitted)*
 
 ---
 
