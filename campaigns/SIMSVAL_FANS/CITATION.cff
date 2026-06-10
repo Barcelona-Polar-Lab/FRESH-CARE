@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "CTD post-processing pipeline for RBR Concerto sensors — SIMSVAL and FANS Mar-Apr 2025"
+abstract: >
+  MATLAB pipeline for post-processing CTD data from RBR Concerto sensors
+  deployed during the SIMSVAL and FANS 2025 spring campaigns
+  aboard R/V Le Commandant Charcot in western Greenland fjords (60.2–69.5°N).
+  Produces L0 (raw) and L2 (processed, quality-controlled) NetCDF-4 files
+  following CF-1.8 / ACDD-1.3 conventions.
+authors:
+  - family-names: Hoareau
+    given-names: Nina
+    orcid: "https://orcid.org/0000-0002-4796-8735"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+    email: nhoareau@icm.csic.es
+  - family-names: Umbert
+    given-names: Marta
+    orcid: "https://orcid.org/0000-0002-0748-7566"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+  - family-names: Crespin
+    given-names: Júlia
+    orcid: "https://orcid.org/0000-0003-4779-6985"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+  - family-names: Sánchez Urrea
+    given-names: María
+    orcid: "https://orcid.org/0009-0008-8972-158X"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+  - family-names: Hernández-Macià
+    given-names: Ferran
+    orcid: "https://orcid.org/0009-0009-9529-9095"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+  - family-names: Gabarró
+    given-names: Carolina
+    orcid: "https://orcid.org/0000-0003-0004-1964"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+  - family-names: De Andrés
+    given-names: Eva
+    orcid: "https://orcid.org/0000-0001-7053-3943"
+    affiliation: "Institut de Ciències del Mar (ICM-CSIC), Barcelona, Spain"
+version: "1.0.0"
+date-released: "2026-06-01"
+license: MIT
+doi: "10.5281/zenodo.20527364"
+repository-code: "https://github.com/Barcelona-Polar-Lab/SIMSVAL_FANS_MarApr2025_postprocessing"
+keywords:
+  - CTD
+  - oceanography
+  - Arctic
+  - Greenland fjords
+  - RBR Concerto
+  - MATLAB
+  - post-processing
+  - quality control
+  - NetCDF
+  - TEOS-10
+  - ARICE
+  - PONANT
