@@ -4,12 +4,12 @@
 
 This work package focuses on validating diverse Arctic surface ocean currents products.
 
-## 👥 Authors & Contributors
-* **Luis Yubero** (Researcher)
-* **Aleida Rosquete** (Researcher)
-* **Júlia Crespin** (Researcher)
-* **Ana M. Mancho** (PI)
-* **Marta Umbert** (PI)
+## 👥 Authors
+* **Luis Yubero**
+* **Aleida Rosquete-Estévez**
+* **Júlia Crespin**
+* **Ana M. Mancho**
+* **Marta Umbert**
 
 ---
 
