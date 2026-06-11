@@ -4,11 +4,15 @@
 
 ## 📘 Methodology & Scientific Citation
 
-The core Lagrangian Uncertainty Quantification (LUQ) methodology and the baseline software components utilized in this repository were originally developed by the active research collaboration led by **García-Sánchez et al.** If you use this framework or parts of this software, please cite the foundational methodology papers:
+The core Lagrangian Uncertainty Quantification (LUQ) methodology and the baseline software components utilized in this repository build upon the methodological and software developments described in the following foundational publications. If you use this framework or parts of this software, please cite:
 
-1. García-Sánchez, L., Mancho, A. M., et al. (2021).
-2. García-Sánchez, L., Mancho, A. M., Ramos, A. G., et al. (2023).
-3. García-Sánchez, L., et al. (2025).
+  1. Garcia-Sanchez, G., Mancho, A. M., et al. Very high resolution tools for the monitoring and assessment of environmental hazards in coastal areas. Frontiers in Marine Science, 7.  (2021).  https://doi.org/10.3389/fmars.2020.605804
+  
+  2.  Garcia-Sanchez,  G. , Mancho, A. M.,  Wiggins, S. A bridge between invariant dynamical structures and uncertainty quantification.  Commun. Nonlinear Sci. Numer. Simul. 104, 106016 (2022).  https://doi.org/10.1016/j.cnsns.2021.106016
+  
+  3. Garcia-Sanchez, G., Mancho, A. M., et al. New links between invariant dynamical structures and uncertainty quantification. Physica D, 453.  (2023).  https://doi.org/10.1016/j.physd.2023.133826
+   
+  4. Garcia-Sanchez, G., Agaoglou, M.  et al. A Lagrangian uncertainty quantification approach to validate ocean model datasets. Physica D 476, (2025). https://doi.org/10.1016/j.physd.2025.134690
 
 ---
 
