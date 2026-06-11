@@ -242,7 +242,7 @@ To ingest a new candidate model dataset into the evaluation suite:
 
 ## 👥 Authors & Credits
 * **Code Architecture & Base Development:** Aleida Rosquete-Estévez.
-* **Feature Expansion, Testing & Notebook Design:** Júlia Crespin.
+* **Feature Expansion, Testing & Notebook Expansion:** Júlia Crespin.
 * **Supervision & Methodology Review:** Co-authored and reviewed by the entire FRESH-CARE WP1 team.
 
 ---
