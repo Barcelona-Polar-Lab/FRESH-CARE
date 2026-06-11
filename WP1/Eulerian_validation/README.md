@@ -8,7 +8,7 @@ The workflow is a cornerstone of **Work Package 1 (WP1)** within the **FRESH-CAR
 
 ---
 
-## 🗺️ Table of Contents
+## Table of Contents
 1. [📂 Repository Structure](#-repository-structure)
 2. [🔄 Workflow Overview](#-workflow-overview)
 3. [⚙️ Environment Setup](#%EF%B8%8F-environment-setup)
