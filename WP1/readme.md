@@ -26,7 +26,7 @@ The source code and pipelines are organized into two independent yet complementa
 ### 2. [📁 Lagrangian_LUQ_evaluation/](./Lagrangian_LUQ_evaluation/)
 * **Focus:** Lagrangian Uncertainty Quantification (LUQ) benchmarking.
 * **Methodology:** Evaluates dataset accuracy by comparing predicted virtual particle trajectories against true observed drifter pathways, utilizing high-performance `Numba` JIT compilation.
-* **Scientific Basis:** Based on the foundational methodology established by García-Sánchez et al. (2021, 2023, 2025).
+* **Scientific Basis:** Builds upon the foundational LUQ methodology and baseline software developments described in García-Sánchez et al. (2021), García-Sánchez, Mancho, and Wiggins (2022), García-Sánchez et al. (2023), and García-Sánchez et al. (2025).
 * **Development:** Adapted for this framework by A. Rosquete-Estévez, with plotting suites expanded by J. Crespin.
 
 ---
