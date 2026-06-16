@@ -1,0 +1,126 @@
+abstract: "<p>This repository contains the complete computational framework, source\
+  \ code, and Jupyter notebooks used to generate the results, figures, and statistical\
+  \ validations presented in the accompanying manuscript <strong>\"Eulerian and Lagrangian\
+  \ Assessment of Arctic Surface Current Products Using Drifter Observations\"</strong>\
+  \ <em>(in preparation to be submitted)</em> and should be cited together with the\
+  \ associated scientific publication(s).</p>\n<p>Developed under Work Package 1 (WP1)\
+  \ of the <strong>FRESH-CARE project (ERC Starting Grant)</strong>, this codebase\
+  \ provides a robust, standardized benchmarking pipeline to evaluate satellite-derived\
+  \ ocean surface current products (including regular and curvilinear gridded models)\
+  \ against <em>in-situ</em> observations from the Global Drifter Program (GDP) across\
+  \ the Arctic Ocean. The<strong> Lagrangian Uncertainty Quantification (LUQ) </strong>software\
+  \ module is based on the foundational methodology described in the foundational\
+  \ publications: Garc&iacute;a-S&aacute;nchez et al., (2021) Garc&iacute;a-S&aacute;nchez,\
+  \ Mancho, &amp; Wiggins, (2022), and Garc&iacute;a-S&aacute;nchez et al., (2023,\
+  \ 2025).</p>\n<p>This research framework was developed through a collaborative scientific\
+  \ fellowship between the Institut de Cienci&egrave;s del Mar (ICM-CSIC) and the\
+  \ Instituto de Ciencias Matematicas (ICMAT).</p>\n<p>The software is divided into\
+  \ two independent, complementary evaluation frameworks:</p>\n<h3>1. Eulerian Evaluation\
+  \ Pipeline</h3>\n<p>A sequential suite of Python scripts and Jupyter notebooks designed\
+  \ to ingest raw drifter records, interpolate heterogeneous current products, and\
+  \ execute regional/seasonal statistical diagnostics.&nbsp;</p>\n<ul>\n<li>\n<p><strong>Data\
+  \ Ingestion &amp; Quality Control:</strong> Splits raw GDP NetCDF streams, applies\
+  \ speed/positioning filters, and utilizes a low-pass Butterworth filter to remove\
+  \ high-frequency tidal/inertial variability.</p>\n</li>\n<li>\n<p><strong>Spatial\
+  \ Tracking:</strong> Executes spatial joins with Arctic sector shapefiles to enable\
+  \ regionalized benchmarking.</p>\n</li>\n<li>\n<p><strong>Advanced Grid Interpolation\
+  \ (<code>interpolate_models.py</code>):</strong> Features automated handlers for\
+  \ distinct model grids, applying bilinear interpolation via <code>xarray</code>\
+  \ for regular coordinates and Delaunay triangulation + linear interpolation for\
+  \ complex curvilinear grids.</p>\n</li>\n<li>\n<p><strong>Statistical Diagnostics:</strong>\
+  \ Computes pan-Arctic and regional metrics (RMSE, Bias, Pearson Correlation, Taylor\
+  \ diagrams, Kernel Density Estimations, and polar-rose directional error distributions).</p>\n\
+  </li>\n</ul>\n<p>The main architecture of the pipeline was developed by A. Rosquete-Est&eacute;vez,\
+  \ with further expansions and refinements by J. Crespin. Supervised and reviewed\
+  \ by all co-authors.</p>\n<h3>2. Lagrangian Uncertainty Quantification (LUQ) Framework</h3>\n\
+  <p>A high-performance command-line tool (<code>run_evaluation.py</code>) coupled\
+  \ with diagnostic notebooks to evaluate current product accuracy by assessing trajectory\
+  \ prediction capabilities.&nbsp;</p>\n<ul>\n<li>\n<p><strong>Trajectory Integration:</strong>\
+  \ Compares predicted virtual particle trajectories driven by different surface current\
+  \ datasets against true observed drifter pathways.</p>\n</li>\n<li>\n<p><strong>Performance-Optimized:</strong>\
+  \ Utilizes <code>Numba</code> JIT compilation to handle heavy spatial array manipulations\
+  \ efficiently.</p>\n</li>\n<li>\n<p><strong>Configurable CLI:</strong> Allows flexible\
+  \ evaluation constraints such as custom dataset selection (<code>ADT-SST</code>,\
+  \ <code>ADT-SSS</code>, etc.), customized advection time horizons (<span class=\"\
+  math-inline\"><span class=\"katex\"><span class=\"katex-html\"><span class=\"base\"\
+  ><span class=\"mord mathnormal\">&tau;</span></span></span></span></span> days),\
+  \ and temporal filter bounding.</p>\n</li>\n</ul>\n<p>The underlying LUQ methodology\
+  \ and baseline software components build upon the original MATLAB implementations\
+  \ developed within this research line and presented in the foundational publications\
+  \ by Garc&iacute;a-S&aacute;nchez et al. (2021), Garc&iacute;a-S&aacute;nchez, Mancho,\
+  \ and Wiggins (2022), and Garc&iacute;a-S&aacute;nchez et al. (2023, 2025). The\
+  \ data-processing pipeline was subsequently adapted for the present framework by\
+  \ A. Rosquete-Estevez, while the plotting routines were expanded by J. Crespin.\
+  \ The overall development was supervised and reviewed by all co-authors.</p>\n<h2>\u2699\
+  \uFE0F Technical Requirements &amp; Reusability</h2>\n<ul>\n<li>\n<p><strong>Environment:</strong>\
+  \ Python 3.8+ (Python 3.11 recommended)</p>\n</li>\n<li>\n<p><strong>Core Dependencies:</strong>\
+  \ <code>xarray</code>, <code>pandas</code>, <code>numpy</code>, <code>scipy</code>,\
+  \ <code>geopandas</code>, <code>shapely</code>, <code>cartopy</code>, <code>numba</code>,\
+  \ <code>matplotlib</code>, <code>skill_metrics</code>.</p>\n</li>\n<li>\n<p><strong>System-level\
+  \ dependencies:</strong> Note that <code>cartopy</code> and <code>geopandas</code>\
+  \ require standard underlying system libraries (<code>libgeos-dev</code>, <code>libproj-dev</code>).</p>\n\
+  </li>\n</ul>\n<h2>\U0001F1EA\U0001F1FA Funding Acknowledgement</h2>\n<p>This software\
+  \ framework is part of the <strong>FRESH-CARE</strong> project (<em>Unraveling FRESHwater\
+  \ and ocean Currents changes in the Arctic using REmote sensing</em>), which has\
+  \ received funding from the <strong>European Research Council (ERC)</strong> under\
+  \ the European Union&rsquo;s Horizon Europe research and innovation programme (Grant\
+  \ Agreement No. 10116451).</p>\n<p>We also acknowledge funding from the Spanish\
+  \ government through the '<strong>Severo Ochoa Centre of Excellence</strong>' accreditation\
+  \ (Grant CEX2024-001494-S funded by AEI 10.13039/501100011033). A. M. Mancho acknowledges\
+  \ the support from grant PID2021-123348OB-I00 funded by MCIN/AEI/10.13039/501100011033/\
+  \ and by FEDER \"A way to make Europe\". A. Rosquete-Est&eacute;vez was supported\
+  \ by a fellowship from the<strong> CSIC JAE Intro ICU 2025 call</strong>, funded\
+  \ by the Spanish Ministry of Science, Innovation and Universities (Grant Ref: PolarCSIC-01).</p>\n\
+  <p>This work is a contribution to <strong>CSIC Conexi&oacute;n Polar and CSIC Thematic\
+  \ Interdisciplinary Platform PTI Teledetect</strong>.</p>\n<h2>Bibliography</h2>\n\
+  <ol>\n<li>Garcia-Sanchez, G., Mancho, A. M., et al. Very high resolution tools for\
+  \ the monitoring and assessment of environmental hazards in coastal areas. Frontiers\
+  \ in Marine Science, 7. &nbsp;(2021). &nbsp;<a href=\"https://doi.org/10.3389/fmars.2020.605804\"\
+  \ rel=\"noopener\">https://doi.org/10.3389/fmars.2020.605804</a></li>\n<li>Garcia-Sanchez,\
+  \ &nbsp;G. , Mancho, A. M., &nbsp;Wiggins, S. A bridge between invariant dynamical\
+  \ structures and uncertainty quantification. &nbsp;Commun. Nonlinear Sci. Numer.\
+  \ Simul. 104, 106016 (2022). &nbsp;<a href=\"https://doi.org/10.1016/j.cnsns.2021.106016\"\
+  \ rel=\"noopener\">https://doi.org/10.1016/j.cnsns.2021.106016</a></li>\n<li>Garcia-Sanchez,\
+  \ G., Mancho, A. M., et al. New links between invariant dynamical structures and\
+  \ uncertainty quantification. Physica D, 453. &nbsp;(2023). &nbsp;<a href=\"https://doi.org/10.1016/j.physd.2023.133826\"\
+  \ rel=\"noopener\">https://doi.org/10.1016/j.physd.2023.133826</a></li>\n<li>Garcia-Sanchez,\
+  \ G., Agaoglou, M. &nbsp;et al. A Lagrangian uncertainty quantification approach\
+  \ to validate ocean model datasets. Physica D 476, (2025). <a href=\"https://doi.org/10.1016/j.physd.2025.134690\"\
+  \ rel=\"noopener\">https://doi.org/10.1016/j.physd.2025.134690</a></li>\n</ol>"
+authors:
+- affiliation: "Institut de Ciències del Mar"
+  family-names: Rosquete Estevez
+  given-names: Aleida
+  orcid: 0009-0001-8919-8206
+- affiliation: "Institut de Ciències del Mar"
+  family-names: Crespin
+  given-names: "Júlia"
+  orcid: 0000-0003-4779-6985
+- affiliation: Institute of Mathematical Sciences
+  family-names: Yubero Lozoya
+  given-names: Luis
+  orcid: 0009-0006-3568-511X
+- affiliation: "Consejo Superior de Investigaciones Cient\xEDficas"
+  family-names: Mancho
+  given-names: Ana Maria
+  orcid: 0000-0002-8385-7098
+- affiliation: "Institut de Ciències del Mar"
+  family-names: Umbert
+  given-names: Marta
+  orcid: 0000-0002-0748-7566
+cff-version: 1.2.0
+date-released: '2026-06-10'
+doi: 10.5281/zenodo.20624431
+keywords:
+- gemet:concept/542
+- Arctic ocean
+- Eulerian evaluation
+- LUQ
+- Lagrangian validation
+- Ocean currents
+license:
+- cc-by-4.0
+message: If you use this work, please cite it using the metadata from this file.
+title: Software and Computational Notebooks for "Eulerian and Lagrangian Assessment
+  of Arctic Surface Current Products Using Drifter Observations"
+version: '1'
