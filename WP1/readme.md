@@ -1,6 +1,7 @@
 # WP1: Ocean Surface Currents Methodology 🌊
 
 **Eulerian and Lagrangian Assessment of Arctic Surface Current Products Using Drifter Observations**
+[![DOI software](https://img.shields.io/badge/DOI%20data-10.5281%2Fzenodo.20624431-blue)](https://doi.org/10.5281/zenodo.20624431)
 
 This work package contains the complete computational framework and benchmarking pipelines developed under the **FRESH-CARE** project to evaluate satellite-derived ocean surface current products (including regular and curvilinear gridded models) against *in-situ* observations from the Global Drifter Program (GDP) across the Arctic Ocean.
 
@@ -10,8 +11,6 @@ This work package contains the complete computational framework and benchmarking
 * **Luis Yubero**
 * **Ana M. Mancho**
 * **Marta Umbert**
-
-[![DOI data](https://img.shields.io/badge/DOI%20data-10.5281%2Fzenodo.20624431-blue)](https://doi.org/10.5281/zenodo.20624431)
 
 ---
 
