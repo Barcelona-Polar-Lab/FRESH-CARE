@@ -11,6 +11,8 @@ This work package contains the complete computational framework and benchmarking
 * **Ana M. Mancho**
 * **Marta Umbert**
 
+[![DOI data](https://img.shields.io/badge/DOI%20data-10.5281%2Fzenodo.20624431-blue)](https://doi.org/10.5281/zenodo.20624431)
+
 ---
 
 ## 📂 Repository Structure
