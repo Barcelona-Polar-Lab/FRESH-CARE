@@ -2,6 +2,8 @@
 
 **Advanced Spatiotemporal Geophysical Data Fusion via Local Linear Regression**
 
+[![DOI software](https://img.shields.io/badge/DOI%20software-10.5281%2Fzenodo.20729634-blue)](https://doi.org/10.5281/zenodo.20729634)
+
 This directory contains the Python mathematical engine and utilities developed for Work Package 1 (WP1) of the **FRESH-CARE** project. It is specifically tailored to blend and fuse gridded geophysical fields using a robust, **spatially weighted local linear regression**. 
 
 The toolkit optimizes data processing pipelines where a coarse Level-3 (L3) satellite product needs to be sharpened or downscaled using a high-resolution template while maintaining absolute quantitative traceability and preserving physical boundaries.
