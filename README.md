@@ -4,8 +4,9 @@
 Welcome to the official repository of the **FRESH-CARE** project, an **ERC Starting Grant** hosted by the **Barcelona Polar Lab**.
 
 * **Principal Investigator:** Marta Umbert Ceresuela 📧 [mumbert@icm.csic.es](mailto:mumbert@icm.csic.es)
+* **Repository Maintainer:** Júlia Crespin Esteve 📧 [jcrespin@icm.csic.es](mailto:jcrespin@icm.csic.es)
 * **Host Institution:** Barcelona-Polar-Lab, Institut de Ciències del Mar (ICM-CSIC), Barcelona
-* **Funding:** European Research Council (ERC) Starting Grant
+* **Funding:** European Research Council (ERC) Starting Grant (Grant Agreement No. 10116451)
 
 ---
 
@@ -36,3 +37,18 @@ fresh-care/
 ├── WP3/          # Arctic freshwater content (FWC) analysis
 ├── WP4/          # Freshwater transport (FWT) across Arctic gateways
 └── WP5/          # Arctic Ocean Numerical Model (ROMS-Sea ice)
+```
+
+---
+
+## ⚙️ How to Use the Available Modules
+
+Each active directory contains its own dedicated `README.md` detailing specific installation environments, dependencies, and execution pipelines (e.g., Python environments, MATLAB scripts).
+
+To clone this repository and access the currently released modules:
+```bash
+git clone [https://github.com/Barcelona-Polar-Lab/FRESH-CARE.git](https://github.com/Barcelona-Polar-Lab/FRESH-CARE.git)
+```
+
+---
+*This project has received funding from the European Research Council (ERC) under the European Union’s Horizon Europe research and innovation programme.*
