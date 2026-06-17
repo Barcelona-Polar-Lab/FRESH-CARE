@@ -16,10 +16,10 @@ The toolkit optimizes data processing pipelines where a coarse Level-3 (L3) sate
 
 The toolkit is structured into three highly optimized layers:
 
-* **1. Mathematical Engine (`py_fusion.fusion`):** Houses the core numerical routines. It executes a NaN-aware 2D/3D local linear regression utilizing configurable spatial boundaries and inverse-distance weight kernels. 
+* **1. Mathematical Engine (`fusion.py`):** Houses the core numerical routines. It executes a NaN-aware 2D/3D local linear regression utilizing configurable spatial boundaries and inverse-distance weight kernels. 
   > 🛡️ **Stability Safe-Guard:** In areas where data is too sparse or unstable (insufficient valid spatial neighbors, e.g., complex coastlines), the algorithm automatically falls back to preserve the original L3 data values.
-* **2. Multi-Dimensional Wrapper (`py_fusion.fusion_xr`):** An `xarray` abstraction layer that handles metadata, preserves native NetCDF coordinates/attributes, and streamlines batch execution on complex oceanographic datasets.
-* **3. Production CLI Orchestrator (`py_fusion.cli_fusion`):** A robust Command Line Interface designed to handle multi-file batch inputs, dimension remapping, automated coordinate validation, and compressed NetCDF output generation.
+* **2. Multi-Dimensional Wrapper (`fusion_xr.py`):** An `xarray` abstraction layer that handles metadata, preserves native NetCDF coordinates/attributes, and streamlines batch execution on complex oceanographic datasets.
+* **3. Production CLI Orchestrator (`cli_fusion.py`):** A robust Command Line Interface designed to handle multi-file batch inputs, dimension remapping, automated coordinate validation, and compressed NetCDF output generation.
 
 ---
 
