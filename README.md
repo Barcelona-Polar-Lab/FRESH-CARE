@@ -21,7 +21,7 @@ This repository acts as a centralized "monorepo" organized strictly by Work Pack
 
 | Directory | Description | Status |
 | :--- | :--- | :--- |
-| 📂 `WP1/` | Ocean surface currents evaluation | 🟢 **Available** (Eulerian and lagrangian (LUQ) validation pipelines) |
+| 📂 `WP1/` | Ocean surface currents evaluation | 🟢 **Available** (Data fusion toolkit and Eulerian and lagrangian (LUQ) validation pipelines) |
 | 📂 `campaigns/` | In-situ data processing and analysis (CTD, ADCP...) | 🟢 **Available** (SIMSVAL & FANS oceanographic campaigns) |
 | 📁 `WP2/` | LSTM to reconstruct 4D oceanographic data | 🟡 *In progress* (Released post-publication) |
 | 📁 `WP3/` | Arctic freshwater content (FWC) analysis | 🟡 *In progress* (Released post-publication) |
