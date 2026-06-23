@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Scripts not included in release
+addEASE.py
+toy_example_bilinear_interp.py
+toy_example_ease_to_latlon.py
+compression_test.py
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+# Include specific notebooks
+!1_JN_data_prep/JN_A1_surface_ADT_glorys.ipynb
+!1_JN_data_prep/JN_A2_surface_satSSS_satSST.ipynb
+!1_JN_data_prep/JN_B1_glorys_profs.ipynb
+!1_JN_data_prep/JN_B2_glorys_monthly_profs.ipynb
+!1_JN_data_prep/JN_B3_bathymetry.ipynb
+!1_JN_data_prep/JN_B4_ice_conc.ipynb
+!1_JN_data_prep/JN_C_split_var_depth.ipynb
+!3_JN_plot_test_results/JN_plot_test_res_regions.ipynb
+!3_JN_plot_test_results/JN_plot_test_results.ipynb
+!4_arctic_reconst_ease/JN_grid_explorer.ipynb
+!6_plot_reconst_results/JN_glorys_plots.ipynb
+!6_plot_reconst_results/JN_plot_reconst_ADH_vel.ipynb
+!6_plot_reconst_results/JN_plot_reconst_maps.ipynb
+!6_plot_reconst_results/JN_plot_reconst_trans_gateways.ipynb
+
+# PyTorch models and training outputs
+model_LSTM_*/
+*.pth
+*.pt
+
+# Data files (NetCDF, etc.)
+fresh_data/
+temp_files/
+data_for_lstm/
+*.nc
+*.nc4
+*.hdf5
+
+# Plots and outputs
+plots/
+latex/
+old/
+*.png
+*.jpg
+*.pdf
+*.tex
+
+# IDEs
+.vscode/
+.idea/
+.copilot-instructions.md
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Architecture search results
+architecture_search/
+
+# Logs
+*.log
