@@ -1,54 +1,169 @@
-# FRESH-CARE 🌊❄️
-**Unraveling FRESHwater and ocean Currents changes in the Arctic using REmote sensing**
+# Ocean LSTM Profile Reconstruction
 
-Welcome to the official repository of the **FRESH-CARE** project, an **ERC Starting Grant** hosted by the **Barcelona Polar Lab**.
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20744924-blue)](https://doi.org/10.5281/zenodo.20744924)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-* **Principal Investigator:** Marta Umbert Ceresuela 📧 [mumbert@icm.csic.es](mailto:mumbert@icm.csic.es)
-* **Repository Maintainer:** Júlia Crespin Esteve 📧 [jcrespin@icm.csic.es](mailto:jcrespin@icm.csic.es)
-* **Host Institution:** Barcelona-Polar-Lab, Institut de Ciències del Mar (ICM-CSIC), Barcelona
-* **Funding:** European Research Council (ERC) Starting Grant (Grant Agreement No. 10116451)
+PyTorch implementation of a stacked Long Short-Term Memory (LSTM) neural network with Monte Carlo Dropout (MCDO) for reconstructing complete Arctic ocean hydrographic profiles (temperature, salinity, and steric height) from combined satellite surface observations and sparse in-situ measurements.
 
----
+Developed within the **FRESH-CARE** project (WP2) at the Institut de Ciències del Mar (ICM-CSIC), Barcelona.
 
-## 📢 Code Availability & Release Policy
+## Features
 
-In compliance with ERC Open Science guidelines, the source code, processing pipelines, and model configurations developed within this project are being released progressively. Code modules are transitioned from internal development branches to this public repository **upon the acceptance/publication of their corresponding peer-reviewed scientific papers**.
+- **Stacked LSTM with Monte Carlo Dropout**: Provides probabilistic uncertainty estimates on reconstructed profiles
+- **Variable-Length Sequence Support**: Handles profiles with NaN tails (varying ocean floor depths) via dynamic padding and masking
+- **EASE-grid Arctic Reconstruction**: Full pipeline to reconstruct 3D Arctic T/S/SH fields on an EASE2 grid
+- **Early Stopping on MC-Dev Loss**: Patience-based stopping evaluated on MC dropout dev loss for robust convergence
+- **Comprehensive Output**: reanalysis baseline, anomalies, full profiles, RMSE statistics, and geostrophic currents
+- **GPU Acceleration**: Automatic CUDA detection and utilization when available
 
----
+## Repository Structure
 
-## 📂 Repository Structure & Status
-
-This repository acts as a centralized "monorepo" organized strictly by Work Packages (WPs) and field activities. 
-
-| Directory | Description | Status |
-| :--- | :--- | :--- |
-| 📂 `WP1/` | Ocean surface currents evaluation | 🟢 **Available** (Data fusion toolkit and Eulerian and lagrangian (LUQ) validation pipelines) |
-| 📂 `campaigns/` | In-situ data processing and analysis (CTD, ADCP...) | 🟢 **Available** (SIMSVAL & FANS oceanographic campaigns) |
-| 📁 `WP2/` | LSTM to reconstruct 4D oceanographic data | 🟢 **Available** |
-| 📁 `WP3/` | Arctic freshwater content (FWC) analysis | 🟡 *In progress* (Released post-publication) |
-| 📁 `WP4/` | Freshwater transport (FWT) across Arctic gateways | 🟡 *In progress* (Released post-publication) |
-| 📁 `WP5/` | Arctic Ocean Numerical Model (ROMS-Sea ice) | 🟡 *In progress* (Released post-publication) |
-
-```text
-fresh-care/
-├── WP1/          # Ocean surface currents evaluation [AVAILABLE]
-├── campaigns/    # In-situ data processing and analysis [AVAILABLE]
-├── WP2/          # LSTM to reconstruct 4D oceanographic data [UPCOMING]
-├── WP3/          # Arctic freshwater content (FWC) analysis
-├── WP4/          # Freshwater transport (FWT) across Arctic gateways
-└── WP5/          # Arctic Ocean Numerical Model (ROMS-Sea ice)
+```
+.
+├── 1_JN_data_prep/          # Notebooks: prepare input NetCDF datasets (surface obs, GLORYS profiles, bathymetry, ice)
+├── 2_lstm_train_test/       # Main training/testing script and MC convergence diagnostics
+│   └── lstm_pytorch_pd_mcdo.py   # Main script
+├── 3_JN_plot_test_results/  # Notebooks: visualize test set performance
+├── 4_arctic_reconst_ease/   # Full Arctic reconstruction pipeline on EASE2 grid
+├── 5_compute_reconst_stats/ # Scripts: compute reconstruction statistics and regional tables
+├── 6_plot_reconst_results/  # Notebooks and scripts: plot reconstruction maps, transects, velocities
+├── AA_winner_model_LSTM_52_46_bs16_lr2e-4_pat6x5_do0.2/  # Pre-trained winner model and test results
+├── data_for_lstm/           # Input NetCDF datasets (train / dev / test splits)
+├── lstm_pytorch_utils.py    # Shared utilities (model loader, MC dropout prediction)
+└── compression_test.py      # NetCDF compression helper
 ```
 
----
+## Requirements
 
-## ⚙️ How to Use the Available Modules
+```
+torch
+numpy
+xarray
+matplotlib
+scipy
+netCDF4
+pyproj
+rasterio
+shapely
+geopandas
+gsw
+cmocean
+cmcrameri
+affine
+tqdm
+pyyaml
+```
 
-Each active directory contains its own dedicated `README.md` detailing specific installation environments, dependencies, and execution pipelines (e.g., Python environments, MATLAB scripts).
+Install with:
 
-To clone this repository and access the currently released modules:
 ```bash
-git clone [https://github.com/Barcelona-Polar-Lab/FRESH-CARE.git](https://github.com/Barcelona-Polar-Lab/FRESH-CARE.git)
+pip install torch numpy xarray matplotlib scipy netCDF4 pyproj rasterio shapely geopandas gsw cmocean cmcrameri affine tqdm pyyaml
 ```
 
----
-*This project has received funding from the European Research Council (ERC) under the European Union’s Horizon Europe research and innovation programme.*
+## Installation
+
+```bash
+git clone https://github.com/Barcelona-Polar-Lab/fresh_care_wp2_ocean_lstm.git
+cd fresh_care_wp2_ocean_lstm
+pip install torch numpy xarray matplotlib scipy netCDF4 pyproj rasterio shapely geopandas gsw cmocean cmcrameri affine tqdm pyyaml
+```
+
+## Usage
+
+### Training and Testing
+
+```bash
+cd 2_lstm_train_test/
+
+# Train and test with default parameters
+python lstm_pytorch_pd_mcdo.py --mode both
+
+# Train only
+python lstm_pytorch_pd_mcdo.py --mode train
+
+# Test only (requires trained model)
+python lstm_pytorch_pd_mcdo.py --mode test
+```
+
+### Custom Architecture
+
+```bash
+# Custom LSTM architecture (e.g., 3 layers with 50, 40, 30 units)
+python lstm_pytorch_pd_mcdo.py --lstm_units 50 40 30 --batch_size 32 --max_epochs 200
+
+# Adjust learning rate and dropout
+python lstm_pytorch_pd_mcdo.py --learning_rate 0.0005 --dropout_rate 0.3
+
+# Custom early stopping patience
+python lstm_pytorch_pd_mcdo.py --patience 10
+```
+
+### Arctic Reconstruction
+
+Edit the config YAML in `4_arctic_reconst_ease/configs/` then run:
+
+```bash
+cd 4_arctic_reconst_ease/
+bash run_reconstruction.sh
+```
+
+## Configuration
+
+Edit the `Config` class in `2_lstm_train_test/lstm_pytorch_pd_mcdo.py` to customize:
+
+- **Input variables**: SST, SSS and ADT anomalies, spatial coordinates, seasonal cycle
+- **Model architecture**: LSTM units, dropout rate
+- **Training parameters**: Batch size, learning rate, max epochs
+- **Early stopping**: Patience evaluations, MC-dev evaluation frequency, minimum delta
+- **File paths**: Training, validation, and test data locations
+
+## Input Data Format
+
+Expected NetCDF files with dimensions `(profile, depth)` containing:
+
+- `TEMP`, `PSAL`, `SH`: In-situ measurements
+- `SST`, `SSS`, `ADT`: Satellite surface observations
+- `T_glorys`, `S_glorys`, `SH_glorys`: GLORYS12 reanalysis
+- `LATITUDE`, `LONGITUDE`, `X_EASE`, `Y_EASE`: Spatial coordinates
+- `day_of_year`, `TIME`: Temporal information
+
+## Output
+
+Training produces:
+- `model_LSTM_X_Y/model.pth`: Trained model with configuration and normalization parameters
+- `model_LSTM_X_Y/training_history.png`: Loss curves with early stopping marker
+
+Testing produces:
+- `model_LSTM_X_Y/mc_test_results.nc`: NetCDF with climatology, anomalies, full reconstructed profiles, MC uncertainty, and RMSE statistics
+
+
+## Model Architecture
+
+```
+Input → Dropout → LSTM[0] → ... → LSTM[N] → Dropout → Linear → Output
+```
+
+- Variable-length sequences handled via dynamic padding and loss masking
+- Monte Carlo Dropout active at inference time for uncertainty quantification
+- Batch-first processing; MSE loss masked over valid (non-NaN) depth levels
+
+## Citation
+
+If you use this code or data, please cite:
+
+> Pelletier, N. W., & Buongiorno Nardelli, B. (2026). *Ocean LSTM Profile Reconstruction* (WP2, FRESH-CARE). Zenodo. https://doi.org/10.5281/zenodo.20744924
+
+
+## Authors
+
+**Original implementation:**  
+Bruno Buongiorno Nardelli  
+Consiglio Nazionale delle Ricerche — Istituto di Scienze Marine, Napoli, Italia
+
+**PyTorch translation, MCDO, refactoring, and Arctic reconstruction pipeline:**  
+Nicolas Werner Pelletier
+Institut de Ciències del Mar (ICM-CSIC), Barcelona, España
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 — see the [LICENSE](LICENSE) file for details.
